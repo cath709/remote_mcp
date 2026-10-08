@@ -1,3 +1,5 @@
+print("starting", flush=True)
+
 import arxiv
 import json
 import os
@@ -8,7 +10,8 @@ from mcp.server.fastmcp import FastMCP
 PAPER_DIR = "papers"
 
 # Initialize FastMCP server : changed port to 10000 to support Render
-mcp = FastMCP("research", port=10000)
+#mcp = FastMCP("research", port=10000)
+mcp = FastMCP("research", host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
 
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> List[str]:
