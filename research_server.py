@@ -4,11 +4,11 @@ import os
 from typing import List
 from mcp.server.fastmcp import FastMCP
 
-# added comment 
+ 
 PAPER_DIR = "papers"
 
-# Initialize FastMCP server
-mcp = FastMCP("research", port=8001)
+# Initialize FastMCP server : changed port to 10000 to support Render
+mcp = FastMCP("research", port=10000)
 
 @mcp.tool()
 def search_papers(topic: str, max_results: int = 5) -> List[str]:
